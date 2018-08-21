@@ -2,7 +2,7 @@ const { test } = require("ava");
 const RCMap = require("../ReverseCharacterMap");
 
 test.beforeEach(t => {
-  t.context = [
+  const data = [
     "Hey there",
     "Hi",
     "Harry",
@@ -15,9 +15,15 @@ test.beforeEach(t => {
     "His name is Harry",
     "Who is this?"
   ];
-});
+  t.context.data = data;
+  t.context.map = new RCMap(data);
+}); 
 
 test("Can create with small list", t => {
-  t.notThrows(() => new RCMap(t.context));
+  t.notThrows(() => new RCMap(["a", "b", "ab", "bc"]));
 });
 
+test("Can find string", t => {
+  const { map, data } = t.context;
+  t.true(map.exists(data[0]));
+});

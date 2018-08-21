@@ -46,9 +46,10 @@ module.exports = class LookupMap {
   }
 
   exists(s) {
-    const map = this.characterMap;
+    let map = this.characterMap;
     for (const c of s.split("")) {
-      if (map.has(c)) map = map.get(c);
+      const n = map[c]
+      if (n) map = n;
       else return false;
     }
     return true;
