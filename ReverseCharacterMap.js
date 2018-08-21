@@ -1,23 +1,21 @@
 module.exports = class LookupMap {
-  
   constructor(arr) {
-    this.characterMap = new Map();
+    this.characterMap = {};
     arr.forEach((s, i) => {
       if (typeof s !== "string")
         throw new Error(`${s} is not string at [${i}]`);
       else this.add(s);
     });
-    console.log(this.characterMap);
   }
 
   add(s) {
     let currentMap = this.characterMap;
     s.split("").forEach(
-      c => (currentMap = currentMap[c] = currentMap[c] || new Map())
+      c => (currentMap = currentMap[c] = currentMap[c] || {})
     );
   }
 
-  remove(s){
+  remove(s) {
     // Not Implemented
   }
 
@@ -25,24 +23,23 @@ module.exports = class LookupMap {
     const map = this.characterMap;
     const chars = s.split("");
     const prefix = "";
-    chars.forEach(c => {
+
+    for (const c of chars) {
       if (map.has(c)) {
         prefix += c;
         map = map.get(c);
-      } else {
-        return this._flattenresults(prefix, map);
-      }
-    });
+      } else return this._flattenresults(prefix, map);
+    }
   }
 
   _flattenresults(prefix, map) {
-    const results = [];
-    maps.keys().forEach(c => {
-      const innermap = map.get(c);
-      if (innermap.keys().length > 0)
-        results = results.concat(this._flattenresults(prefix + c, map));
+    let results = [];
+    Object.keys(map).forEach(c => {
+      const innermap = map[c];
+      if (Object.keys(innermap).length > 0)
+        results = results.concat(this._flattenresults(prefix + c, innermap));
       else {
-        results.concat(prefix + c);
+        results.push(prefix + c);
       }
     });
     return results;
@@ -57,5 +54,7 @@ module.exports = class LookupMap {
     return true;
   }
 
-  toArray = () => this._flattenresults("", this.characterMap)
+  toArray() {
+    return this._flattenresults("", this.characterMap);
+  }
 };

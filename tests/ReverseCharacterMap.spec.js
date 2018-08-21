@@ -1,8 +1,8 @@
 const { test } = require("ava");
-const RCMap = require('../ReverseCharacterMap');
+const RCMap = require("../ReverseCharacterMap");
 
-test.before(t=>{
-  t.context.sentences = [
+test.beforeEach(t => {
+  t.context = [
     "Hey there",
     "Hi",
     "Harry",
@@ -14,9 +14,10 @@ test.before(t=>{
     "Hi there",
     "His name is Harry",
     "Who is this?"
-  ]
-})
+  ];
+});
 
-test('Map is set up correctly', t=>{
-  t.git
-})
+test("Can create with small list", t => {
+  t.notThrows(() => new RCMap(t.context));
+});
+
