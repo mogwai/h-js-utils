@@ -1,5 +1,10 @@
 module.exports = class LookupMap {
+  
   constructor(arr) {
+    this.setArray(arr);
+  }
+
+  setArray(arr){
     this.characterMap = {};
     arr.forEach((s, i) => {
       if (typeof s !== "string")
