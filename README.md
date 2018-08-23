@@ -10,3 +10,5 @@
 - Use process module for concurrent map generation?
   - Each tree can be generated in parrallel
   - Could be used for query() and exists()
+- Query caching
+- Serialisation
