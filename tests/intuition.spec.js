@@ -1,5 +1,5 @@
 const test = require("ava");
-const RCMap = require("../src/ReverseCharacterMap");
+const RCMap = require("../lib/ReverseCharacterMap");
 const { genArr } = require("./util");
 
 test.before(t => {
@@ -56,6 +56,11 @@ test("Can't find invalid string", t => {
   ["Hey mann", "Yo pal", "Sup dude", "Hey thre"].forEach(x =>
     t.false(map.exists(x))
   );
+});
+
+test("Prefix in the map doesn't exist", t => {
+  const { map } = t.context;
+  t.false(map.exists("Ha"));
 });
 
 test("Can query strings begining with H", t => {

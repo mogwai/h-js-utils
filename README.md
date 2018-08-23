@@ -5,4 +5,3 @@
 - Remove string from map
 - Implment with Map class?
 - Test if faster?
-

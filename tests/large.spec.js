@@ -1,6 +1,6 @@
 const test = require("ava");
 const { genArr, rand, timeExec } = require("./util");
-const RCMap = require("../src/ReverseCharacterMap");
+const RCMap = require("../lib/ReverseCharacterMap");
 
 test.before(t => {
   const largedata = genArr();
