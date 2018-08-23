@@ -56,6 +56,35 @@ test("Can create", t => {
   t.notThrows(() => new RCMap(["a", "b", "ab", "bc"]));
 });
 
+test("Can find string", t => {
+  const { map, data } = t.context;
+  t.true(map.exists(data[0]));
+});
+
+test("Can't find invalid string", t => {
+  const { map } = t.context;
+  ["Hey mann", "Yo pal", "Sup dude", "Hey thre"].forEach(x =>
+    t.false(map.exists(x))
+  );
+});
+
+test("Can query strings begining with H", t => {
+  const { map, data } = t.context;
+  const num = data.filter(x => x[0] === "H");
+  t.is(map.query("H").length, num);
+});
+
+test("Can query strings beginning with Ha", t => {
+  const { map, data } = t.context;
+  const num = data.filter(x => x[0] === "Ha");
+  t.is(map.query("Ha").length, num);
+});
+
+test("Query Hitter gives nothing", t => {
+  const { map } = t.context;
+  t.is(map.query("Hitter").length, 0);
+});
+
 test("Can find in large list", t => {
   const { largeMap, largedata } = t.context;
   const itemToFind = largedata[rand(largedata.length)];
@@ -65,9 +94,4 @@ test("Can find in large list", t => {
     "findtime"
   );
   t.true(maptime < findtime);
-});
-
-test("Can find string", t => {
-  const { map, data } = t.context;
-  t.true(map.exists(data[0]));
 });

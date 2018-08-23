@@ -10,5 +10,16 @@
   "license": "ISC",
   "devDependencies": {
     "ava": "^1.0.0-beta.7"
-  }
+  },
+  "ava": {
+		"files": [
+			"tests"
+		],
+		"cache": true,
+		"concurrency": 4,
+		"failFast": true,
+		"failWithoutAssertions": false,
+		"tap": false,
+		"verbose": false
+	}
 }
