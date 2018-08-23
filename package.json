@@ -13,10 +13,13 @@
   },
   "ava": {
 		"files": [
-			"tests"
-		],
+			"tests/**/*.spec.js"
+    ],
+    "sources": [
+      "src/**/*.js"
+    ],
 		"cache": true,
-		"concurrency": 4,
+		"concurrency": 5,
 		"failFast": true,
 		"failWithoutAssertions": false,
 		"tap": false,
