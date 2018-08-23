@@ -1,3 +1,5 @@
+const StringLookupMap = require("../");
+
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 -+?/.,'£$%^&*";
 
 const rand = function(n = 1) {
@@ -26,9 +28,12 @@ const genArr = function(length = Math.pow(10, 6), maxStringLength = 20) {
   return arr;
 };
 
+const genMap = (ss, cs) => new StringLookupMap(genArr(ss, cs));
+
 module.exports = {
   rand,
   genArr,
+  genMap,
   generateString,
   timeExec
 };

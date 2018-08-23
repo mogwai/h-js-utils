@@ -1,6 +1,6 @@
 const test = require("ava");
 const RCMap = require("../lib/ReverseCharacterMap");
-const { genArr } = require("./util");
+const { genArr, genMap } = require("./util");
 
 test.before(t => {
   const data = [
@@ -21,7 +21,7 @@ test.before(t => {
 });
 
 test("Can create", t => {
-  t.notThrows(_ => new RCMap(genArr(4, 3)));
+  t.notThrows(_ => genMap(4, 3));
 });
 
 test("Can re-assign", t => {

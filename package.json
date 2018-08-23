@@ -4,7 +4,8 @@
   "description": "Some nice classes for JS",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "perf": "node tests/performance.js"
   },
   "author": "",
   "license": "ISC",

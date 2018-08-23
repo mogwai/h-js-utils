@@ -1,1 +1,1 @@
-module.exports = require("./src/ReverseCharacterMap");
+module.exports = require("./lib/StringLookupMap");
