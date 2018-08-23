@@ -1,5 +1,5 @@
 const test = require("ava");
-const { genArr } = require("./util");
+const { genArr, rand, timeExec } = require("./util");
 
 test.before(t => {
   const largedata = genArr();
