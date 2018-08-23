@@ -1,5 +1,6 @@
 const test = require("ava");
 const RCMap = require("../src/ReverseCharacterMap");
+const { genArr } = require("./util");
 
 test.before(t => {
   const data = [
@@ -20,12 +21,23 @@ test.before(t => {
 });
 
 test("Can create", t => {
-  t.notThrows(_ => new RCMap(["a", "b", "ab", "bc"]));
+  t.notThrows(_ => new RCMap(genArr(4, 3)));
 });
 
 test("Can re-assign", t => {
-  t.notThrows(_ => t.context.map.setArray(["a", "b", "ba"]));
+  t.notThrows(_ => {
+    const map = new RCMap(genArr(4, 2));
+    map.setArray(genArr(10, 2));
+  });
 });
+
+test("Can add string", t => {
+  const { map } = t.context;
+  map.add("Test");
+  t.true(map.exists("Test"));
+});
+
+test.todo("Can remove string");
 
 test("Can find string", t => {
   const { map, data } = t.context;
