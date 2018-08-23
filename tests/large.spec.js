@@ -14,7 +14,6 @@ test.skip("Can find in large list", t => {
   const maptime = timeExec(_ => largeMap.exists(itemToFind));
   const findtime = timeExec(_ => largedata.find(x => x === itemToFind));
   t.true(maptime < findtime);
-  console.log("finished 1");
 });
 
 test.skip("Can query in large list", t => {
