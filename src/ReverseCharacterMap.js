@@ -20,7 +20,7 @@ module.exports = class LookupMap {
   }
 
   remove(s) {
-    // Not Implemented
+    throw new Error("Not implemented");
   }
 
   query(s) {
@@ -33,12 +33,6 @@ module.exports = class LookupMap {
       } else break;
     }
     return prefix.length === s.length ? this._flattenresults(prefix, map) : [];
-  }
-
-  shallowQuery(s) {
-    let bestprefix = "";
-    for (const c of s.split("")) {
-    }
   }
 
   _flattenresults(prefix, map) {
