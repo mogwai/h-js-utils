@@ -1,5 +1,5 @@
 const test = require("ava");
-const RCMap = require("../ReverseCharacterMap");
+const RCMap = require("../src/ReverseCharacterMap");
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 -+?/.,'£$%^&*";
 
