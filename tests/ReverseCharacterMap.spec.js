@@ -71,13 +71,19 @@ test("Can't find invalid string", t => {
 test("Can query strings begining with H", t => {
   const { map, data } = t.context;
   const num = data.filter(x => x[0] === "H");
-  t.is(map.query("H").length, num);
+  t.is(map.query("H").length, num.length);
 });
 
 test("Can query strings beginning with Ha", t => {
   const { map, data } = t.context;
-  const num = data.filter(x => x[0] === "Ha");
-  t.is(map.query("Ha").length, num);
+  const num = data.filter(x => x.substring(0, 2) === "Ha");
+  t.is(map.query("Ha").length, num.length);
+});
+
+test("Can query strings beginning with He", t => {
+  const { map, data } = t.context;
+  const num = data.filter(x => x.substring(0, 2) === "He");
+  t.is(map.query("He").length, num.length);
 });
 
 test("Query Hitter gives nothing", t => {

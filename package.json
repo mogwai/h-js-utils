@@ -4,7 +4,7 @@
   "description": "Some nice classes for JS",
   "main": "index.js",
   "scripts": {
-    "test": "ava tests"
+    "test": "ava"
   },
   "author": "",
   "license": "ISC",

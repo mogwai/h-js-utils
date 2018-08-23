@@ -14,5 +14,5 @@ const map = new RCMap([
   "Who is this?"
 ]);
 
-const arr = map.toArray();
-console.log(arr);
+const res = map.query("Ha");
+console.log(res);
