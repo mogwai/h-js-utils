@@ -39,6 +39,13 @@ test("Can add string", t => {
 
 test.todo("Can remove string");
 
+test("Can convert to array", t => {
+  const data = genArr(10, 20);
+  const map = new RCMap(data);
+  const arr = map.toArray();
+  t.deepEqual(arr.sort(), data.sort());
+});
+
 test("Can find string", t => {
   const { map, data } = t.context;
   t.true(map.exists(data[0]));

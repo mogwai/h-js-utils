@@ -8,7 +8,7 @@ test.before(t => {
   t.context.largeMap = new RCMap(largedata);
 });
 
-test.skip("Can find in large list", t => {
+test("Can find in large list", t => {
   const { largeMap, largedata } = t.context;
   const itemToFind = largedata[rand(largedata.length)];
   const maptime = timeExec(_ => largeMap.exists(itemToFind));
@@ -16,7 +16,7 @@ test.skip("Can find in large list", t => {
   t.true(maptime < findtime);
 });
 
-test.skip("Can query in large list", t => {
+test("Can query in large list", t => {
   const { largeMap, largedata } = t.context;
   const itemToFind = largedata[rand(largedata.length)];
   const maptime = timeExec(_ => largeMap.exists(itemToFind));
