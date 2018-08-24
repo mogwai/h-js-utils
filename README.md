@@ -12,3 +12,5 @@
   - Could be used for query() and exists()
 - Query caching
 - Serialisation
+- process module & Webworkers
+- Promise

@@ -13,17 +13,17 @@
     "ava": "^1.0.0-beta.7"
   },
   "ava": {
-		"files": [
-			"tests/**/*.spec.js"
+    "files": [
+      "tests/**/*.spec.js"
     ],
     "sources": [
       "src/**/*.js"
     ],
-		"cache": true,
-		"concurrency": 5,
-		"failFast": true,
-		"failWithoutAssertions": false,
-		"tap": false,
-		"verbose": false
-	}
+    "cache": true,
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": false,
+    "verbose": false
+  }
 }

@@ -1,9 +1,10 @@
 const StringLookupMap = require("../");
 const { genMap, genArr, rand } = require("./util");
 
-for (const x of [3, 4, 5, 6]) {
+for (const x of [4, 5, 6]) {
   let tName = `\n----------\nParse time of length 10^${x}`;
   const data = genArr(Math.pow(10, x), 20);
+  console.log("Array generated");
   console.time(tName);
   const map = new StringLookupMap(data);
   console.timeEnd(tName);

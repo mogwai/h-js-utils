@@ -1,5 +1,5 @@
 const test = require("ava");
-const RCMap = require("../lib/ReverseCharacterMap");
+const RCMap = require("../lib/StringLookupMap");
 const { genArr, genMap } = require("./util");
 
 test.before(t => {
