@@ -30,7 +30,8 @@ test("Can query in large list", t => {
         x => x.substring(0, prefix.length) === prefix
       );
       if (!found.length) break;
-      found = found.filter(x => !results.find(y => y === x));
+      // Could be avoided
+      found = found.filter(x => !results.find(y => y === x)); 
       results = results.concat(found);
     }
   });
