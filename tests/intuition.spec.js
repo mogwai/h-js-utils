@@ -90,7 +90,7 @@ test("Can remove a string", t => {
   const testString = arr[rand(arr.length)];
   t.true(map.exists(testString));
   map.remove(testString);
-  t.false(map.exists(teststring));
+  t.false(map.exists(testString));
 });
 
 test("After remove(), strings with same prefix still exist", t => {
