@@ -1,19 +1,19 @@
 const test = require("ava");
 const RCMap = require("../lib/StringLookupMap");
-const { genArr, genMap } = require("./util");
+const { genArr, genMap, rand } = require("./util");
 
 test.before(t => {
   const data = [
-    "Hey there",
-    "Hi",
     "Harry",
-    "He is a prick",
+    "Hey there",
     "Hey man",
     "Hey dude",
-    "Hows it going",
-    "Who are you",
+    "He is a prick",
+    "Hi",
     "Hi there",
     "His name is Harry",
+    "Hows it going",
+    "Who are you",
     "Who is this?"
   ];
   t.context.data = data;
@@ -36,8 +36,6 @@ test("Can add string", t => {
   map.add("Test");
   t.true(map.exists("Test"));
 });
-
-test.todo("Can remove string");
 
 test("Can convert to array", t => {
   const data = genArr(10, 20);
@@ -84,4 +82,24 @@ test("Can query strings beginning with He", t => {
 test("Query Hitter gives nothing", t => {
   const { map } = t.context;
   t.is(map.query("Hitter").length, 0);
+});
+
+test("Can remove a string", t => {
+  const arr = genArr(100, 20);
+  const map = new RCMap(arr);
+  const testString = arr[rand(arr.length)];
+  t.true(map.exists(testString));
+  map.remove(testString);
+  t.false(map.exists(teststring));
+});
+
+test("After remove(), strings with same prefix still exist", t => {
+  const { map } = t.context;
+  t.true(map.exists("Hey there"));
+  t.true(map.exists("Hey man"));
+  t.true(map.exists("Hey dude"));
+  map.remove("Hey there");
+  t.false(map.exists("Hey there"));
+  t.true(map.exists("Hey man"));
+  t.true(map.exists("Hey dude"));
 });
