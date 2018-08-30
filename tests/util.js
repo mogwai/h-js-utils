@@ -28,8 +28,7 @@ const genArr = function(length = Math.pow(10, 6), maxStringLength = 20) {
   return arr;
 };
 
-const genMap = (arraysize, maxstringSize) 
-  => new StringLookupMap(genArr(arraysize, maxstringSize));
+const genMap = (arraysize, maxstringSize) => new StringLookupMap(genArr(arraysize, maxstringSize));
 
 module.exports = {
   rand,
