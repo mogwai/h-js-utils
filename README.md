@@ -1,8 +1,6 @@
 # TODO
 
-
 ### Reverse Character Map Lookup
-- Remove string from map
 - Iterator
 - Implement with Map class (Test if Map in global/window)
   - Output array would be guaranteed sorted
